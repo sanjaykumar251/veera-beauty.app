@@ -1,0 +1,78 @@
+name: veeras_beauty
+description: Veera's Beauty & Tattoo Studio — Premium mobile app for parlour booking and academy courses.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+
+  # Navigation
+  go_router: ^14.1.4
+
+  # HTTP
+  dio: ^5.4.3+1
+  pretty_dio_logger: ^1.3.1
+
+  # Firebase
+  firebase_core: ^3.3.0
+  firebase_auth: ^5.1.4
+  firebase_messaging: ^15.1.0
+  flutter_local_notifications: ^17.2.1+2
+
+  # YouTube Player
+  youtube_player_flutter: ^9.0.2
+
+  # Storage
+  shared_preferences: ^2.2.3
+  flutter_secure_storage: ^9.0.0
+
+  # UI
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  lottie: ^3.1.2
+  flutter_svg: ^2.0.10+1
+  google_fonts: ^6.2.1
+  animations: ^2.0.11
+  carousel_slider: ^5.0.0
+  table_calendar: ^3.1.2
+  percent_indicator: ^4.2.3
+  badges: ^3.1.2
+  intl: ^0.19.0
+  url_launcher: ^6.3.0
+  image_picker: ^1.1.2
+  fl_chart: ^0.68.0
+
+  # Utils
+  logger: ^2.4.0
+  connectivity_plus: ^6.0.3
+  package_info_plus: ^8.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.11
+  riverpod_generator: ^2.4.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+#    - assets/animations/
+#    - assets/icons/
+#  fonts:
+#    - family: Playfair
+#      fonts:
+#        - asset: assets/fonts/PlayfairDisplay-Regular.ttf
+#        - asset: assets/fonts/PlayfairDisplay-Bold.ttf
+#          weight: 700
+#        - asset: assets/fonts/PlayfairDisplay-Italic.ttf
+#          style: italic

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "930869727200",
+    "project_id": "veeras-beauty-app",
+    "storage_bucket": "veeras-beauty-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930869727200:android:6549809d21aa08b70c6585",
+        "android_client_info": {
+          "package_name": "com.veeras.veeras_beauty"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiZuc6CQVgA7UfSFJBqfPF_Npey0IFSs0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
