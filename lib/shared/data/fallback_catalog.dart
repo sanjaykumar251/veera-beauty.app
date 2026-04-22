@@ -595,14 +595,14 @@ class FallbackCatalog {
   static Map<String, dynamic> _lesson({
     required String id,
     required String title,
-    required String videoId,
+    String? videoId,
     bool isFreePreview = false,
   }) {
     return {
       '_id': id,
       'title': title,
       'description': title,
-      'youtubeVideoId': videoId,
+      'youtubeVideoId': null,
       'duration': 600,
       'order': 1,
       'isFreePreview': isFreePreview,

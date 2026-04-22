@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:veeras_beauty/features/academy/screens/course_detail_screen.dart';
 import 'package:veeras_beauty/features/academy/screens/courses_screen.dart';
 import 'package:veeras_beauty/features/academy/screens/my_courses_screen.dart';
-import 'package:veeras_beauty/features/academy/screens/video_player_screen.dart';
 import 'package:veeras_beauty/features/auth/screens/login_screen.dart';
 import 'package:veeras_beauty/features/auth/screens/register_screen.dart';
 import 'package:veeras_beauty/features/membership/screens/membership_screen.dart';
@@ -80,13 +79,6 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/course/:courseId',
         builder: (context, state) => CourseDetailScreen(
           courseId: state.pathParameters['courseId']!,
-        ),
-      ),
-      GoRoute(
-        path: '/lesson/:courseId/:lessonId',
-        builder: (context, state) => VideoPlayerScreen(
-          courseId: state.pathParameters['courseId']!,
-          lessonId: state.pathParameters['lessonId']!,
         ),
       ),
     ],

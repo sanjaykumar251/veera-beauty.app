@@ -10,7 +10,7 @@ exports.getCourses = async (req, res) => {
     if (category) filter.category = category;
 
     const courses = await Course.find(filter)
-      .select('-modules.lessons.youtubeVideoId') // Hide video IDs for unenrolled
+      .select('-modules.lessons.youtubeVideoId -previewVideoId')
       .sort({ isFeatured: -1, createdAt: -1 });
 
     res.json({ success: true, courses });
@@ -32,22 +32,23 @@ exports.getCourse = async (req, res) => {
       ec => ec.courseId.toString() === req.params.id
     );
 
-    // If not enrolled, hide video IDs (only show free preview lessons)
+    const sanitized = course.toObject();
+    sanitized.previewVideoId = null;
+    sanitized.modules = sanitized.modules.map(mod => ({
+      ...mod,
+      lessons: mod.lessons.map(lesson => ({
+        ...lesson,
+        youtubeVideoId: null,
+      })),
+    }));
+
     if (!isEnrolled) {
-      const sanitized = course.toObject();
-      sanitized.modules = sanitized.modules.map(mod => ({
-        ...mod,
-        lessons: mod.lessons.map(lesson => ({
-          ...lesson,
-          youtubeVideoId: lesson.isFreePreview ? lesson.youtubeVideoId : null,
-        })),
-      }));
       return res.json({ success: true, course: sanitized, isEnrolled: false });
     }
 
     // Get progress if enrolled
     const progress = await Progress.findOne({ userId: user._id, courseId: req.params.id });
-    res.json({ success: true, course, isEnrolled: true, progress });
+    res.json({ success: true, course: sanitized, isEnrolled: true, progress });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

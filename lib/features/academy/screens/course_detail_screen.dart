@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:veeras_beauty/core/constants.dart';
 import 'package:veeras_beauty/core/theme.dart';
 import 'package:veeras_beauty/shared/services/api_service.dart';
@@ -34,8 +33,7 @@ class _CourseDetailScreenState extends ConsumerState<CourseDetailScreen> {
 
   Future<void> _loadCourse() async {
     try {
-      final data =
-          await ref.read(apiServiceProvider).getCourse(widget.courseId);
+      final data = await ref.read(apiServiceProvider).getCourse(widget.courseId);
       if (!mounted) return;
       setState(() {
         _course = data['course'];
@@ -89,18 +87,12 @@ class _CourseDetailScreenState extends ConsumerState<CourseDetailScreen> {
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 _course!['title'] ?? '',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleMedium
-                    ?.copyWith(color: Colors.white),
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.white),
               ),
               background: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [
-                      AppTheme.primary.withOpacity(0.6),
-                      AppTheme.backgroundDark
-                    ],
+                    colors: [AppTheme.primary.withOpacity(0.6), AppTheme.backgroundDark],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
@@ -116,23 +108,18 @@ class _CourseDetailScreenState extends ConsumerState<CourseDetailScreen> {
                       const SizedBox(height: 8),
                       if (_isEnrolled)
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 4),
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                           decoration: BoxDecoration(
                             color: AppTheme.success.withOpacity(0.2),
                             borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                                color: AppTheme.success.withOpacity(0.5)),
+                            border: Border.all(color: AppTheme.success.withOpacity(0.5)),
                           ),
                           child: const Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(Icons.check_circle,
-                                  color: AppTheme.success, size: 14),
+                              Icon(Icons.check_circle, color: AppTheme.success, size: 14),
                               SizedBox(width: 4),
-                              Text('Enrolled',
-                                  style: TextStyle(
-                                      color: AppTheme.success, fontSize: 12)),
+                              Text('Enrolled', style: TextStyle(color: AppTheme.success, fontSize: 12)),
                             ],
                           ),
                         ),
@@ -156,18 +143,17 @@ class _CourseDetailScreenState extends ConsumerState<CourseDetailScreen> {
                       decoration: BoxDecoration(
                         color: AppTheme.info.withOpacity(0.12),
                         borderRadius: BorderRadius.circular(14),
-                        border:
-                            Border.all(color: AppTheme.info.withOpacity(0.35)),
+                        border: Border.all(color: AppTheme.info.withOpacity(0.35)),
                       ),
                       child: const Text(
-                        'Showing saved course details. Enrollment and payment need the studio server.',
+                        'Showing saved course details. Videos are removed and live enrollment needs the studio server.',
                       ),
                     ),
                   Row(
                     children: [
                       _InfoBadge(
-                        icon: Icons.video_library_outlined,
-                        label: '${_course!['totalLessons'] ?? 0} Lessons',
+                        icon: Icons.menu_book_outlined,
+                        label: '${_course!['totalLessons'] ?? 0} Topics',
                       ),
                       const SizedBox(width: 8),
                       _InfoBadge(
@@ -182,20 +168,17 @@ class _CourseDetailScreenState extends ConsumerState<CourseDetailScreen> {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  Text(_course!['description'] ?? '',
-                      style: Theme.of(context).textTheme.bodyMedium),
+                  Text(_course!['description'] ?? '', style: Theme.of(context).textTheme.bodyMedium),
                   if (_isEnrolled && _progress != null) ...[
                     const SizedBox(height: 20),
-                    Text('Your Progress',
-                        style: Theme.of(context).textTheme.headlineSmall),
+                    Text('Your Progress', style: Theme.of(context).textTheme.headlineSmall),
                     const SizedBox(height: 8),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: LinearProgressIndicator(
                         value: (_progress!['percentageComplete'] ?? 0) / 100,
                         backgroundColor: const Color(0xFF2A2A3A),
-                        valueColor:
-                            const AlwaysStoppedAnimation(AppTheme.primary),
+                        valueColor: const AlwaysStoppedAnimation(AppTheme.primary),
                         minHeight: 8,
                       ),
                     ),
@@ -205,11 +188,9 @@ class _CourseDetailScreenState extends ConsumerState<CourseDetailScreen> {
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
-                  if ((_course!['whatYouLearn'] as List?)?.isNotEmpty ==
-                      true) ...[
+                  if ((_course!['whatYouLearn'] as List?)?.isNotEmpty == true) ...[
                     const SizedBox(height: 24),
-                    Text('What you\'ll learn',
-                        style: Theme.of(context).textTheme.headlineMedium),
+                    Text('What you\'ll learn', style: Theme.of(context).textTheme.headlineMedium),
                     const SizedBox(height: 10),
                     ...(_course!['whatYouLearn'] as List).map(
                       (item) => Padding(
@@ -217,13 +198,10 @@ class _CourseDetailScreenState extends ConsumerState<CourseDetailScreen> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Icon(Icons.check_circle,
-                                color: AppTheme.success, size: 16),
+                            const Icon(Icons.check_circle, color: AppTheme.success, size: 16),
                             const SizedBox(width: 8),
                             Expanded(
-                              child: Text(item.toString(),
-                                  style:
-                                      Theme.of(context).textTheme.bodyMedium),
+                              child: Text(item.toString(), style: Theme.of(context).textTheme.bodyMedium),
                             ),
                           ],
                         ),
@@ -231,9 +209,21 @@ class _CourseDetailScreenState extends ConsumerState<CourseDetailScreen> {
                     ),
                   ],
                   const SizedBox(height: 24),
-                  Text('Course Content',
-                      style: Theme.of(context).textTheme.headlineMedium),
+                  Text('Course Content', style: Theme.of(context).textTheme.headlineMedium),
                   const SizedBox(height: 10),
+                  Container(
+                    width: double.infinity,
+                    margin: const EdgeInsets.only(bottom: 16),
+                    padding: const EdgeInsets.all(14),
+                    decoration: BoxDecoration(
+                      color: AppTheme.info.withOpacity(0.12),
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(color: AppTheme.info.withOpacity(0.35)),
+                    ),
+                    child: const Text(
+                      'Videos are removed from the academy. This section now shows only the course syllabus.',
+                    ),
+                  ),
                   ...modules.asMap().entries.map((entry) {
                     final module = entry.value as Map<String, dynamic>;
                     final lessons = module['lessons'] as List? ?? [];
@@ -241,8 +231,6 @@ class _CourseDetailScreenState extends ConsumerState<CourseDetailScreen> {
                       module: module,
                       moduleIndex: entry.key,
                       lessons: lessons,
-                      isEnrolled: _isEnrolled,
-                      courseId: widget.courseId,
                       progress: _progress,
                     );
                   }),
@@ -272,17 +260,9 @@ class _CourseDetailScreenState extends ConsumerState<CourseDetailScreen> {
                       ),
                   ] else
                     GradientButton(
-                      label: 'Continue Learning',
-                      icon: Icons.play_arrow_rounded,
-                      onPressed: () {
-                        if (modules.isEmpty) return;
-                        final lessons = modules.first['lessons'] as List? ?? [];
-                        if (lessons.isEmpty) return;
-                        final firstLesson =
-                            lessons.first as Map<String, dynamic>;
-                        context.push(
-                            '/lesson/${widget.courseId}/${firstLesson['_id']}');
-                      },
+                      label: 'Course Enrolled',
+                      icon: Icons.check_circle_outline,
+                      onPressed: null,
                     ),
                   const SizedBox(height: 40),
                 ],
@@ -299,16 +279,12 @@ class _ModuleExpansion extends StatelessWidget {
   final Map<String, dynamic> module;
   final int moduleIndex;
   final List lessons;
-  final bool isEnrolled;
-  final String courseId;
   final Map<String, dynamic>? progress;
 
   const _ModuleExpansion({
     required this.module,
     required this.moduleIndex,
     required this.lessons,
-    required this.isEnrolled,
-    required this.courseId,
     required this.progress,
   });
 
@@ -323,10 +299,11 @@ class _ModuleExpansion extends StatelessWidget {
       ),
       child: ExpansionTile(
         tilePadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-        title: Text('Module ${moduleIndex + 1}: ${module['title']}',
-            style: Theme.of(context).textTheme.titleMedium),
-        subtitle: Text('${lessons.length} lessons',
-            style: Theme.of(context).textTheme.bodySmall),
+        title: Text(
+          'Module ${moduleIndex + 1}: ${module['title']}',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        subtitle: Text('${lessons.length} topics', style: Theme.of(context).textTheme.bodySmall),
         iconColor: AppTheme.primary,
         children: lessons.map((lessonItem) {
           final lesson = lessonItem as Map<String, dynamic>;
@@ -342,52 +319,28 @@ class _ModuleExpansion extends StatelessWidget {
           }
 
           final isCompleted = lessonProgress?['completed'] == true;
-          final isAccessible = isEnrolled || lesson['isFreePreview'] == true;
 
           return ListTile(
             leading: Icon(
-              isCompleted
-                  ? Icons.check_circle
-                  : (isAccessible
-                      ? Icons.play_circle_outline
-                      : Icons.lock_outline),
-              color: isCompleted
-                  ? AppTheme.success
-                  : (isAccessible ? AppTheme.primary : AppTheme.textMuted),
+              isCompleted ? Icons.check_circle : Icons.article_outlined,
+              color: isCompleted ? AppTheme.success : AppTheme.primary,
               size: 20,
             ),
             title: Text(
               lesson['title'] ?? '',
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    color: isAccessible
-                        ? AppTheme.textPrimary
-                        : AppTheme.textMuted,
+                    color: AppTheme.textPrimary,
                   ),
             ),
-            trailing: lesson['isFreePreview'] == true
-                ? Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                    decoration: BoxDecoration(
-                      color: AppTheme.success.withOpacity(0.15),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: Text(
-                      'FREE',
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelSmall
-                          ?.copyWith(color: AppTheme.success),
-                    ),
-                  )
+            subtitle: const Text('Syllabus topic'),
+            trailing: isCompleted
+                ? const Icon(Icons.check_circle, color: AppTheme.success, size: 18)
                 : null,
-            onTap: isAccessible
-                ? () => context.push('/lesson/$courseId/${lesson['_id']}')
-                : () => ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                          content: Text(
-                              'Enroll in this course to access this lesson')),
-                    ),
+            onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Videos are removed. This course now shows syllabus only.'),
+              ),
+            ),
           );
         }).toList(),
       ),
@@ -400,8 +353,11 @@ class _QRPaymentWidget extends StatelessWidget {
   final String? courseName;
   final dynamic price;
 
-  const _QRPaymentWidget(
-      {required this.qrDataUrl, required this.courseName, required this.price});
+  const _QRPaymentWidget({
+    required this.qrDataUrl,
+    required this.courseName,
+    required this.price,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -416,15 +372,10 @@ class _QRPaymentWidget extends StatelessWidget {
         children: [
           Text(
             'Pay Rs $price to Enroll',
-            style: Theme.of(context)
-                .textTheme
-                .headlineMedium
-                ?.copyWith(color: AppTheme.accent),
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: AppTheme.accent),
           ),
           const SizedBox(height: 4),
-          Text(courseName ?? '',
-              style: Theme.of(context).textTheme.bodySmall,
-              textAlign: TextAlign.center),
+          Text(courseName ?? '', style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center),
           const SizedBox(height: 16),
           if (qrDataUrl != null)
             ClipRRect(
@@ -440,10 +391,7 @@ class _QRPaymentWidget extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             'After payment, send your screenshot to WhatsApp +91 83445 49199 with the course name. Access will be granted within 24 hours.',
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall
-                ?.copyWith(color: AppTheme.warning),
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppTheme.warning),
             textAlign: TextAlign.center,
           ),
         ],

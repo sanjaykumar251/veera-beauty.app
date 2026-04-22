@@ -489,6 +489,18 @@ const sampleCourses = [
   },
 ];
 
+const coursesWithoutVideos = sampleCourses.map((course) => ({
+  ...course,
+  previewVideoId: null,
+  modules: (course.modules || []).map((module) => ({
+    ...module,
+    lessons: (module.lessons || []).map((lesson) => ({
+      ...lesson,
+      youtubeVideoId: null,
+    })),
+  })),
+}));
+
 const run = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI, { dbName: 'veeras_beauty' });
@@ -502,7 +514,7 @@ const run = async () => {
     await Course.deleteMany({ title: { $in: oldSampleTitles } });
 
     await Course.bulkWrite(
-      sampleCourses.map((course) => ({
+      coursesWithoutVideos.map((course) => ({
         updateOne: {
           filter: { title: course.title },
           update: { $set: course },

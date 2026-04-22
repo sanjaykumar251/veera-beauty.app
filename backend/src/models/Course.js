@@ -6,8 +6,7 @@ const lessonSchema = new mongoose.Schema({
   description: String,
   youtubeVideoId: {
     type: String,
-    required: true,
-    // Store only the video ID, e.g. "dQw4w9WgXcQ"
+    default: null,
   },
   duration: Number, // in seconds
   order: { type: Number, default: 0 },
@@ -41,7 +40,10 @@ const courseSchema = new mongoose.Schema({
     required: true,
   },
   thumbnail: String,
-  previewVideoId: String, // YouTube ID for course trailer
+  previewVideoId: {
+    type: String,
+    default: null,
+  },
   price: {
     type: Number,
     required: true,
@@ -76,7 +78,7 @@ const courseSchema = new mongoose.Schema({
   requirements: [String],
   instructor: {
     type: String,
-    default: "Veera's Beauty Academy",
+    default: "Veera's Beauty & Tattoo Studio",
   },
 }, { timestamps: true });
 

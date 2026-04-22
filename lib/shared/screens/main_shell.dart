@@ -15,7 +15,7 @@ class _MainShellState extends ConsumerState<MainShell> {
   final List<_NavItem> _navItems = const [
     _NavItem(label: 'Home', icon: Icons.home_outlined, activeIcon: Icons.home_rounded, path: '/'),
     _NavItem(label: 'Services', icon: Icons.spa_outlined, activeIcon: Icons.spa_rounded, path: '/services'),
-    _NavItem(label: 'Academy', icon: Icons.play_circle_outline, activeIcon: Icons.play_circle, path: '/academy'),
+    _NavItem(label: 'Academy', icon: Icons.school_outlined, activeIcon: Icons.school, path: '/academy'),
     _NavItem(label: 'Profile', icon: Icons.person_outline, activeIcon: Icons.person_rounded, path: '/profile'),
   ];
 
@@ -27,7 +27,6 @@ class _MainShellState extends ConsumerState<MainShell> {
     if (location.startsWith('/services')) return 1;
     if (location.startsWith('/academy') ||
         location.startsWith('/course') ||
-        location.startsWith('/lesson') ||
         location.startsWith('/my-courses')) {
       return 2;
     }
