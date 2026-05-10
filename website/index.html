@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veera's Beauty & Tattoo Studio</title>
+  <meta
+    name="description"
+    content="Veera's Beauty & Tattoo Studio offers bridal makeup, parlour services, academy courses, VIP membership, and app booking access."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Veera's Beauty & Tattoo Studio home">
+        <span class="brand__mark">VB</span>
+        <span class="brand__text">
+          <strong>Veera's Beauty</strong>
+          <small>& Tattoo Studio</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#academy">Academy</a>
+        <a href="#vip">VIP</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="topbar__actions">
+        <a class="button button--ghost" href="https://wa.me/918344549199" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a class="button button--primary" href="./downloads/veeras-beauty.apk" download>Download App</a>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero__content">
+          <p class="eyebrow">Cheyyar's trusted beauty destination</p>
+          <h1>Beauty studio, bridal artistry, academy, and tattoo care in one brand experience.</h1>
+          <p class="hero__lead">
+            Veera's Beauty & Tattoo Studio brings premium salon services, certified-style training,
+            client loyalty offers, and easy app-based booking together.
+          </p>
+
+          <div class="hero__actions">
+            <a class="button button--primary" href="./downloads/veeras-beauty.apk" download>Get The App</a>
+            <a class="button button--secondary" href="#services">Explore Services</a>
+          </div>
+
+          <ul class="hero__points" aria-label="Highlights">
+            <li>4.9 rating based on 85+ Google reviews</li>
+            <li>Bridal specialists loved by brides, families, and regular clients</li>
+            <li>Parlour services, academy courses, VIP benefits, and WhatsApp support</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero-card hero-card--main">
+            <span class="hero-card__label">Signature Bridal</span>
+            <h2>Elegant looks that stay flawless through muhoortham, reception, and outdoor shoots.</h2>
+            <div class="hero-card__stats">
+              <div>
+                <strong>4.9</strong>
+                <span>Studio rating</span>
+              </div>
+              <div>
+                <strong>85+</strong>
+                <span>Google reviews</span>
+              </div>
+              <div>
+                <strong>10</strong>
+                <span>Academy courses</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card hero-card--mini">
+            <span class="pill">VIP</span>
+            <p>11th service free after 10 visits, selected buy 1 get 1 offers, and bridal savings.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip">
+        <div class="trust-strip__rating">
+          <strong>4.9</strong>
+          <span>Based on 85+ Google Reviews</span>
+        </div>
+        <p>
+          Cheyyar's most trusted beauty studio, loved for bridal makeup, hairstyling, mehandi,
+          academy coaching, and warm client care.
+        </p>
+      </section>
+
+      <section class="section section--light" id="services">
+        <div class="section__header">
+          <div>
+            <p class="eyebrow">Parlour Catalogue</p>
+            <h2>Services designed for events, regular care, bridal moments, and self-grooming.</h2>
+          </div>
+          <p class="section__copy">
+            Explore makeup, hair, skin, mehendi, bridal packages, tattoo services, saree draping,
+            and grooming support from one studio team.
+          </p>
+        </div>
+
+        <div class="chip-row" id="serviceFilters" aria-label="Service filters"></div>
+        <div class="card-grid" id="servicesGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="section section--dark" id="academy">
+        <div class="section__header">
+          <div>
+            <p class="eyebrow">Veera's Academy</p>
+            <h2>Learn beauty skills through practical, salon-inspired course tracks.</h2>
+          </div>
+          <p class="section__copy">
+            From bridal artistry to hair colour, tattoo basics, saree pre-pleating, and special
+            makeup classes, the academy is built for learners who want studio-ready confidence.
+          </p>
+        </div>
+
+        <div class="course-layout">
+          <div class="course-list" id="courseList" aria-label="Academy courses"></div>
+          <aside class="syllabus-card" id="courseSpotlight">
+            <p class="eyebrow">Spotlight Course</p>
+            <h3>Bridal makeup artist</h3>
+            <p>Complete bridal workflow for professional artists.</p>
+            <ul>
+              <li>Skin prep, base, and long-wear finishing</li>
+              <li>Muhoortham, Christian wedding, and party makeup</li>
+              <li>Semi HD, HD, Ultra HD, waterproof, and air brush topics</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section--gold" id="vip">
+        <div class="section__header">
+          <div>
+            <p class="eyebrow">VIP Loyalty Membership</p>
+            <h2>Rewards that make regular visits feel more valuable every time.</h2>
+          </div>
+          <p class="section__copy">
+            Designed for repeat clients, bridal families, and members who want priority support,
+            better value, and a more personal studio relationship.
+          </p>
+        </div>
+
+        <div class="vip-panel">
+          <div class="vip-price">
+            <span>Yearly package</span>
+            <strong>Rs 999</strong>
+            <small>1 year membership</small>
+          </div>
+
+          <div class="vip-benefits">
+            <div class="benefit">
+              <h3>11th Service Free</h3>
+              <p>Take 10 services and get the 11th service free as a loyalty reward.</p>
+            </div>
+            <div class="benefit">
+              <h3>Buy 1 Get 1 Offers</h3>
+              <p>Selected service bundles become easier to share with family or friends.</p>
+            </div>
+            <div class="benefit">
+              <h3>Bridal Savings</h3>
+              <p>VIP members can unlock 5% extra benefit on eligible bridal bookings.</p>
+            </div>
+            <div class="benefit">
+              <h3>Priority Support</h3>
+              <p>Get faster booking help through the app and WhatsApp support flow.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--light" id="reviews">
+        <div class="section__header">
+          <div>
+            <p class="eyebrow">Client Love</p>
+            <h2>Reviews that reflect trust, consistency, and beautiful final results.</h2>
+          </div>
+          <p class="section__copy">
+            A warm client experience matters just as much as the final look. These review cards are
+            styled from the tone and trust you wanted the brand to show.
+          </p>
+        </div>
+
+        <div class="reviews">
+          <article class="review-card">
+            <span class="stars">★★★★★</span>
+            <p>
+              She did an excellent job with both makeup and hairstyling. It looked natural and
+              elegant, not overdone at all. The makeup lasted for hours without fading.
+            </p>
+            <strong>Priya R.</strong>
+            <small>Sister's Engagement Makeup</small>
+          </article>
+
+          <article class="review-card">
+            <span class="stars">★★★★★</span>
+            <p>
+              Bridal service, saree draping, and family makeup were handled smoothly. We felt cared
+              for from start to finish and the photos turned out beautiful.
+            </p>
+            <strong>Harini S.</strong>
+            <small>Wedding Booking</small>
+          </article>
+
+          <article class="review-card">
+            <span class="stars">★★★★★</span>
+            <p>
+              Friendly service, clean studio environment, and reliable suggestions. Even regular
+              visits for skincare and grooming feel premium here.
+            </p>
+            <strong>Karthick V.</strong>
+            <small>Regular Client</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--dark" id="download">
+        <div class="download-panel">
+          <div>
+            <p class="eyebrow">Mobile Experience</p>
+            <h2>Download the app for bookings, academy browsing, and VIP access.</h2>
+            <p>
+              The mobile app gives clients a direct path to explore services, view academy courses,
+              connect through membership offers, and stay close to the studio.
+            </p>
+          </div>
+
+          <div class="download-panel__actions">
+            <a class="button button--primary" href="./downloads/veeras-beauty.apk" download>
+              Download APK
+            </a>
+            <a class="button button--secondary" href="https://veeras-beauty-backend.onrender.com/health" target="_blank" rel="noreferrer">
+              Check Live Backend
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="footer__intro">
+        <p class="eyebrow">Visit or Contact</p>
+        <h2>Veera's Beauty & Tattoo Studio</h2>
+        <p>
+          Bridal makeup, beauty services, academy guidance, and membership support from one trusted
+          studio brand.
+        </p>
+      </div>
+
+      <div class="footer__grid">
+        <div>
+          <h3>Quick Contact</h3>
+          <a href="tel:+918344549199">+91 83445 49199</a>
+          <a href="https://wa.me/918344549199" target="_blank" rel="noreferrer">WhatsApp Chat</a>
+          <a href="mailto:contact@veerasbeauty.in">contact@veerasbeauty.in</a>
+        </div>
+
+        <div>
+          <h3>Website Sections</h3>
+          <a href="#services">Services</a>
+          <a href="#academy">Academy</a>
+          <a href="#vip">VIP Membership</a>
+          <a href="#download">App Download</a>
+        </div>
+
+        <div>
+          <h3>What We Offer</h3>
+          <p>Bridal Makeup</p>
+          <p>Hair & Skin Services</p>
+          <p>Mehendi & Tattoo</p>
+          <p>Beauty Academy Courses</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
